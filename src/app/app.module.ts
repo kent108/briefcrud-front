@@ -11,6 +11,8 @@ import { PageProductComponent } from './pages/page-product/page-product.componen
 import { CardComponent } from './components/card/card.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormProductComponent } from './components/form-product/form-product.component';
+import { PageAddProductComponent } from './pages/page-add-product/page-add-product.component';
 
 
 
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     PageNotFoundComponent,
     PageProductComponent,
     CardComponent,
-    ProductListComponent, 
+    ProductListComponent,
+    FormProductComponent,
+    PageAddProductComponent, 
     ],
   imports: [
     BrowserModule,
