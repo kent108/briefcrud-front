@@ -4,17 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PageHomeComponent } from './pages/page-home/page-home.component';
+import { PageAdminComponent } from './pages/page-admin/page-admin.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PageProductComponent } from './pages/page-product/page-product.component';
+import { CardComponent } from './components/card/card.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent, 
+    NavbarComponent,
+    PageHomeComponent,
+    PageAdminComponent,
+    PageNotFoundComponent,
+    PageProductComponent,
+    CardComponent,
+    ProductListComponent, 
     ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
