@@ -2,11 +2,13 @@
   <h3 class="mb-4 text-center">Liste des produits</h3>
   <button
     type="button"
-    class="btn btn-secondary mt-3 position-relative py-2 px-4 "
+    class="btn btn-secondary mt-3 position-relative py-2 px-4"
     [routerLink]="['/add-product']"
+    *ngIf="isUserLoggedIn"
   >
     <i class="fa fa-trash" aria-hidden="true"></i> Ajouter un produit
   </button>
+
   <table class="table table-bordered shadow mt-5">
     <thead class="table-dark">
       <tr>
@@ -14,13 +16,11 @@
         <th scope="col">Nom</th>
         <th scope="col">Prix</th>
         <th scope="col">Catégories</th>
-        <th scope="col">Actions</th>
+        <th scope="col" *ngIf="isUserLoggedIn">Actions</th>
       </tr>
     </thead>
-    <tbody >
-      <tr
-        *ngFor="let product of products; let i = index"
-      >
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
         <th scope="row">{{ i + 1 }}</th>
         <td data-column="Nom:">{{ product.name }}</td>
         <td data-column="price:">{{ product.price }}</td>
@@ -28,13 +28,16 @@
           {{ product.category.name }}
         </td>
 
-        <td>
-          
-          <button class="btn btn-edit btn-warning">
-              <i class="fa fa-pencil-alt" aria-hidden="true"></i> Éditer
-            </button>
-            
-            <button
+        <td *ngIf="isUserLoggedIn">
+          <button
+            type="button"
+            class="btn btn-edit btn-warning"
+            (click)="navigateToEdit(product.id)"
+          >
+            <i class="fa fa-pencil-alt" aria-hidden="true"></i> Éditer
+          </button>
+
+          <button
             type="button"
             class="btn btn-danger"
             (click)="deleteProduct(product.id)"

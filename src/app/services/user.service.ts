@@ -9,7 +9,9 @@ import { Token } from '../models/token';
   providedIn: 'root',
 })
 export class UserService {
-  
+  private userLoggedIn = new BehaviorSubject<boolean>(false);
+  userLoggedIn$ = this.userLoggedIn.asObservable(); //  Observable abonnements
+
   constructor(private readonly http: HttpClient, private router: Router) {}
 
   url: string = `http://localhost:3000/api/`;
@@ -23,5 +25,17 @@ export class UserService {
   subscribe(user: User): Observable<User> {
     // On envoie l'utilisateur au serveur
     return this.http.post<User>(`${this.url}auth/register`, user);
+  }
+
+  logout(): void {
+    // je supprime le token de l'espace de stockage
+    localStorage.removeItem('token');
+
+    // je redirige l'usager vers la page de connexion ou la page d'accueil
+    this.router.navigate(['/admin']);
+  }
+
+  setLoggedIn(value: boolean): void {
+    this.userLoggedIn.next(value);
   }
 }

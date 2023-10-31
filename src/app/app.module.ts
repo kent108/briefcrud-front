@@ -14,6 +14,8 @@ import { FormProductComponent } from './components/form-product/form-product.com
 import { PageAddProductComponent } from './pages/page-add-product/page-add-product.component';
 import { PageConnectComponent } from './pages/page-connect/page-connect.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
+
 
 
 
@@ -29,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormProductComponent,
     PageAddProductComponent,
     PageConnectComponent,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,14 +6,24 @@ import { PageAdminComponent } from './pages/page-admin/page-admin.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageAddProductComponent } from './pages/page-add-product/page-add-product.component';
 import { PageConnectComponent } from './pages/page-connect/page-connect.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { AuthGuard } from './guards/auth-guard.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin', pathMatch: 'full' },
-  // { path: 'home', component: PageHomeComponent },
   { path: 'admin', component: PageAdminComponent },
-  { path: 'connect', component: PageConnectComponent},
-  { path: 'add-product', component: PageAddProductComponent},
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'connect', component: PageConnectComponent },
+  {
+    path: 'add-product',
+    component: PageAddProductComponent,
+    // canActivate: [AuthGuard],
+  },
+  {
+    path: 'product-edit/:id',
+    component: ProductEditComponent,
+    // canActivate: [AuthGuard],
+  },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

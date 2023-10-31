@@ -10,7 +10,10 @@
           <a class="nav-link active" aria-current="page" [routerLink]="['/']">Tous les produits</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/connect']">Connexion</a>
+          <a type="button" class="btn btn-light" [routerLink]="['/connect']">Connexion</a>
+        </li>
+         <li class="nav-item">
+          <a type="button" class="btn btn-light" (click)="onLogout()">Deconnexion</a>
         </li>
       </ul>
     </div>

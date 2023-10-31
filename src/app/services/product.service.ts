@@ -16,14 +16,24 @@ export class ProductService {
     return this.http.get<Product[]>(this.url);
   }
 
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.url}/${id}`);
+  }
+
   deleteProduct(id: number): Observable<Product> {
     return this.http.delete<Product>(`${this.url}/${id}`);
   }
 
+
   updateProduct(updateProduct: Product): Observable<Product> {
     return this.http.patch<Product>(
       `${this.url}/${updateProduct.id}`,
-      updateProduct
+      updateProduct,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
     );
   }
 
