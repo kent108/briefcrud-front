@@ -1,34 +1,48 @@
 <div class="container table-responsive">
-    <h3 class="mb-4 text-center">Liste des produits</h3>
-    <table class="table table-bordered shadow">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nom</th>
-          <th scope="col">Prix</th>
-          <th scope="col">Catégories</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="position-relative py-2 px-4" *ngFor="let product of products; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
-          <td data-column="Nom:">{{ product.name }}</td>
-          <td data-column="price:">{{ product.price }}</td>
-          <td data-column="Cat:" class="list-group-item">
-            {{ product.category.name }}</td>
-          
+  <h3 class="mb-4 text-center">Liste des produits</h3>
+  <button
+    type="button"
+    class="btn btn-secondary mt-3 position-relative py-2 px-4 "
+    [routerLink]="['/add-product']"
+  >
+    <i class="fa fa-trash" aria-hidden="true"></i> Ajouter un produit
+  </button>
+  <table class="table table-bordered shadow mt-5">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Catégories</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr
+        *ngFor="let product of products; let i = index"
+      >
+        <th scope="row">{{ i + 1 }}</th>
+        <td data-column="Nom:">{{ product.name }}</td>
+        <td data-column="price:">{{ product.price }}</td>
+        <td data-column="Cat:" class="list-group-item">
+          {{ product.category.name }}
+        </td>
 
-          <td>
-            <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)">
-              <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
-            </button>
-            <!-- <button class="btn btn-edit btn-sm" (click)="navigateToEdit(product.id)">
-              <i class="fa fa-pencil-alt" aria-hidden="true"></i> Éditer
-            </button> -->
-          </td>
+        <td>
           
-        </tr>
-      </tbody>
-    </table>
+          <button class="btn btn-edit btn-warning">
+              <i class="fa fa-pencil-alt" aria-hidden="true"></i> Éditer
+            </button>
+            
+            <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteProduct(product.id)"
+          >
+            <i class="fa fa-trash" aria-hidden="true"></i> Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

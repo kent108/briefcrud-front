@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-add-product.component.css']
 })
 export class PageAddProductComponent {
-
+  constructor() { }
+  ngOnInit(): void { }
 }

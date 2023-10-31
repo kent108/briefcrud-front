@@ -20,7 +20,18 @@ export class ProductService {
     return this.http.delete<Product>(`${this.url}/${id}`);
   }
 
-  updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.url}/${product.id}`, product);
+  updateProduct(updateProduct: Product): Observable<Product> {
+    return this.http.patch<Product>(
+      `${this.url}/${updateProduct.id}`,
+      updateProduct
+    );
+  }
+
+  createProduct(newProduct: Product): Observable<Product> {
+    return this.http.post<Product>(`${this.url}`, newProduct, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
   }
 }
