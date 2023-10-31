@@ -16,18 +16,16 @@ const routes: Routes = [
   {
     path: 'add-product',
     component: PageAddProductComponent,
-    // canActivate: [AuthGuard],
   },
   {
     path: 'product-edit/:id',
     component: ProductEditComponent,
-    // canActivate: [AuthGuard],
   },
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

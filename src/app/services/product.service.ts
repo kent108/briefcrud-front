@@ -21,14 +21,17 @@ export class ProductService {
   }
 
   deleteProduct(id: number): Observable<Product> {
-    return this.http.delete<Product>(`${this.url}/${id}`);
+    return this.http.delete<Product>(`${this.url}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
   }
 
-
-  updateProduct(updateProduct: Product): Observable<Product> {
+  updateProduct(updatedProduct: Product): Observable<Product> {
     return this.http.patch<Product>(
-      `${this.url}/${updateProduct.id}`,
-      updateProduct,
+      `${this.url}/${updatedProduct.id}`,
+      updatedProduct,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,

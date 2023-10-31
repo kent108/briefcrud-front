@@ -15,7 +15,7 @@
         <th scope="col">#</th>
         <th scope="col">Nom</th>
         <th scope="col">Prix</th>
-        <th scope="col">Catégories</th>
+        <th scope="col">Quantité</th>
         <th scope="col" *ngIf="isUserLoggedIn">Actions</th>
       </tr>
     </thead>
@@ -25,7 +25,7 @@
         <td data-column="Nom:">{{ product.name }}</td>
         <td data-column="price:">{{ product.price }}</td>
         <td data-column="Cat:" class="list-group-item">
-          {{ product.category.name }}
+          {{ product.quantity }}
         </td>
 
         <td *ngIf="isUserLoggedIn">
